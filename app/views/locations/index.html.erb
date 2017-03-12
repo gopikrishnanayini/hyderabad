@@ -1,0 +1,18 @@
+<h1>Listing Location</h1>
+<table deep='1'>
+<tr>
+<th>Address</th>
+</tr>
+<% @locations.each do |location| %>
+<tr>
+	<td><%= location.address %></td>
+	<td><%= link_to 'show', location_path(location) %></td>
+	<td><%= link_to 'edit', edit_location_path(location) %></td>
+	<td><%= link_to 'location', new_location_event_path(@location) %></td>
+	<td><%= link_to 'destroy', location_path(location),
+	       method: :delete,data: { clear: 'Are you sure?' } %></td>
+	</tr>
+<% end %>
+</table>
+
+<%= link_to 'back',root_path %>
