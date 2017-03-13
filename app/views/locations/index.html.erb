@@ -3,16 +3,13 @@
 <tr>
 <th>Address</th>
 </tr>
-<% @locations.each do |location| %>
 <tr>
-	<td><%= location.address %></td>
-	<td><%= link_to 'show', location_path(location) %></td>
-	<td><%= link_to 'edit', edit_location_path(location) %></td>
-	<td><%= link_to 'location', new_location_event_path(@location) %></td>
-	<td><%= link_to 'destroy', location_path(location),
+	<td><%= @locations.address %></td>
+	<td><%= link_to 'show', event_location_path(@event, @locations) %></td>
+	<td><%= link_to 'edit', edit_event_location_path(@event,@locations) %></td>
+	<td><%= link_to 'events', event_path(@event,@locations) %></td>
+	<td><%= link_to 'destroy', event_location_path(@event,@locations),
 	       method: :delete,data: { clear: 'Are you sure?' } %></td>
-	</tr>
-<% end %>
+</tr>
 </table>
-
-<%= link_to 'back',root_path %>
+<%= link_to 'New Location', new_event_location_path %>

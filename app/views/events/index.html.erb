@@ -10,11 +10,18 @@
 	<td><%= event.name %></td>
 	<td><%= event.place %></td>
 	<td><%= event.date %></td>
+    <% if !event.location.nil? %>
+	<td><%= event.location.address %></td>
+	<% end %>
 	<td><%= link_to 'show', event_path(event) %></td>
 	<td><%= link_to 'edit', edit_event_path(event) %></td>
-	<td><%= link_to 'locations', new_event_location_path(event) %></td>
 	<td><%= link_to 'Destroy', event_path(event),
 	         method: :delete,data: { clear:'Are you sure?'} %></td>
+	<% if !event.location.nil? %>
+    	<% @location = event.location  %>
+	    <td><%= link_to 'location', event_location_path(event,@location) %></td>
+	<% end %>
+	<td><%= link_to 'location new', new_event_location_path(event) %></td>
 
 
 </tr>

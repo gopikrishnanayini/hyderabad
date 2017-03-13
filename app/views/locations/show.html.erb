@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Address:</b>
+  <%= @location.address %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_event_location_path(@event, @location) %> |
+<%= link_to 'Back',  event_locations_path %>
